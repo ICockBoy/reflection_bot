@@ -56,7 +56,7 @@ async def subscribe(message: Message):
 async def subscribe(message: Message):
     await message.delete()
     await message.answer(text="О том, как проходят коуч-сессии, можно почитать на моем сайте:"
-                              "\nhttps://olgasedakova.ru/")
+                              "\nolgagrigorieva.ru")
 
 
 @start.callback_query(F.data == "no")
