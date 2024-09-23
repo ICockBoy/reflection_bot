@@ -10,6 +10,16 @@ from Database import DataBase
 start = Router()
 
 
+@start.message(Command("btn"))
+async def create_buttons(message: Message):
+    keyboard = InlineKeyboardBuilder()
+    keyboard.add(InlineKeyboardButton(text="Забронировать сессию", url="https://olga-sedakova.reservio.com/"))
+    keyboard.add(InlineKeyboardButton(text="Написать в Whatsapp", url="https://wa.me/+79774916345"))
+    keyboard.add(InlineKeyboardButton(text="Как проходят коуч-сессии", url="olgagrigorieva.ru"))
+    keyboard.adjust(1)
+    await message.answer(text="Тут нужен текст!", reply_markup=keyboard.as_markup())
+
+
 async def pendingMessage(message: Message, text: str, keyboard: InlineKeyboardBuilder = InlineKeyboardBuilder()):
     await asyncio.sleep(5)
     await message.answer(text=text, reply_markup=keyboard.as_markup())
@@ -68,10 +78,3 @@ async def reflectionNotification(callback: CallbackQuery):
     await callback.answer()
 
 
-@start.message(Command("btn"))
-async def create_buttons(message: Message):
-    keyboard = InlineKeyboardBuilder()
-    keyboard.add(InlineKeyboardButton(text="Забронировать сессию", url="https://wa.me/+79774916345https://olga-sedakova.reservio.com/"))
-    keyboard.add(InlineKeyboardButton(text="Написать в Whatsapp", url="https://wa.me/+79774916345"))
-    keyboard.add(InlineKeyboardButton(text="Как проходят коуч-сессии", url="olgagrigorieva.ru"))
-    await message.answer(text="Тут нужен текст!", reply_markup=keyboard.as_markup())
