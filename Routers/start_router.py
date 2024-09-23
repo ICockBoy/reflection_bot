@@ -66,3 +66,12 @@ async def reflectionNotification(callback: CallbackQuery):
         text="Отлично! Если Вы почувствуете, что время рефлексии пришло, то просто напишите /reflection или "
              "воспользуейтесь меню команд!")
     await callback.answer()
+
+
+@start.message(Command("btn"))
+async def create_buttons(message: Message):
+    keyboard = InlineKeyboardBuilder()
+    keyboard.add(InlineKeyboardButton(text="Забронировать сессию", url="https://wa.me/+79774916345https://olga-sedakova.reservio.com/"))
+    keyboard.add(InlineKeyboardButton(text="Написать в Whatsapp", url="https://wa.me/+79774916345"))
+    keyboard.add(InlineKeyboardButton(text="Как проходят коуч-сессии", url="olgagrigorieva.ru"))
+    await message.answer(text="Тут нужен текст!", reply_markup=keyboard.as_markup())
