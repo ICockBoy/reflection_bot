@@ -17,7 +17,7 @@ async def create_buttons(message: Message, bot: Bot):
     keyboard.add(InlineKeyboardButton(text="Написать в Whatsapp", url="https://wa.me/+79774916345"))
     keyboard.add(InlineKeyboardButton(text="Как проходят коуч-сессии", url="olgagrigorieva.ru"))
     keyboard.adjust(1)
-    await bot.send_message(chat_id=-1002292430247, text="Меню:", reply_markup=keyboard.as_markup())
+    await bot.send_message(chat_id=-1001759472925, text="Меню:", reply_markup=keyboard.as_markup())
 
 
 async def pendingMessage(message: Message, text: str, keyboard: InlineKeyboardBuilder = InlineKeyboardBuilder()):
